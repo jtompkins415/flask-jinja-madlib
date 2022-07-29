@@ -1,29 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/madlib.css">
-    <title>{% block title %} Madlib Home {% endblock%}</title>
-</head>
-<body>
-    <nav class="navbar">
-        <a href="/">Start over</a>
-    </nav>
-    {% block content %}
-    <h1>Madlib Fun!</h1>
-    <h2>Enter fun words below:</h2>
+{% extends "base.html" %}
 
-    <form action="/story">
-        {% for prompt in prompts %}
-        <p> {{prompt}}:
-            <input name="{{prompt}}">
-        </p>
-        {% endfor %}
-        <input type="hidden" name="story_id" value="{{ story_id }}">
-        <button>Generate Story</button>
-    </form>
-    {% endblock %}
-</body>
-</html>
+{% block title %} Madlib Questions {% endblock %}
+{% block content %}
+  <h1>Madlib Fun!</h1>
+  <h2>Enter fun words below:</h2>
+
+  <form action="/story">
+      {% for prompt in prompts %}
+      <p> {{prompt}}:
+          <input name="{{prompt}}">
+     </p>
+     {% endfor %}
+      <input type="hidden" name="story_id" value="{{story_id }}">
+     <button>Generate Story</button>
+  </form>
+{% endblock %}
